@@ -31,6 +31,57 @@ namespace CustomControls.RJControls
         //Events
         public event EventHandler OnSelectedIndexChanged;//Default event
 
+        //Constructor
+        public RJComboBox()
+        {
+            cmbList = new ComboBox();
+            lblText = new Label();
+            btnIcon = new Button();
+            this.SuspendLayout();
+
+            //ComboBox: Dropdown list
+            cmbList.BackColor = listBackColor;
+            cmbList.Font = new Font(this.Font.Name, 10F);
+            cmbList.ForeColor = listTextColor;
+            cmbList.SelectedIndexChanged += new EventHandler(ComboBox_SelectedIndexChanged);//Default event
+            cmbList.TextChanged += new EventHandler(ComboBox_TextChanged);//Refresh text
+
+            //Button: Icon
+            btnIcon.Dock = DockStyle.Right;
+            btnIcon.FlatStyle = FlatStyle.Flat;
+            btnIcon.FlatAppearance.BorderSize = 0;
+            btnIcon.BackColor = backColor;
+            btnIcon.Size = new Size(30, 30);
+            btnIcon.Cursor = Cursors.Hand;
+            btnIcon.Click += new EventHandler(Icon_Click);//Open dropdown list
+            btnIcon.Paint += new PaintEventHandler(Icon_Paint);//Draw icon
+
+            //Label: Text
+            lblText.Dock = DockStyle.Fill;
+            lblText.AutoSize = false;
+            lblText.BackColor = backColor;
+            lblText.TextAlign = ContentAlignment.MiddleLeft;
+            lblText.Padding = new Padding(8, 0, 0, 0);
+            lblText.Font = new Font(this.Font.Name, 10F);
+            //->Attach label events to user control event
+            lblText.Click += new EventHandler(Surface_Click);//Select combo box
+            lblText.MouseEnter += new EventHandler(Surface_MouseEnter);
+            lblText.MouseLeave += new EventHandler(Surface_MouseLeave);
+
+            //User Control
+            this.Controls.Add(lblText);//2
+            this.Controls.Add(btnIcon);//1
+            this.Controls.Add(cmbList);//0
+            this.MinimumSize = new Size(200, 30);
+            this.Size = new Size(200, 30);
+            this.ForeColor = Color.DimGray;
+            this.Padding = new Padding(borderSize);//Border Size
+            this.Font = new Font(this.Font.Name, 10F);
+            base.BackColor = borderColor; //Border Color
+            this.ResumeLayout();
+            AdjustComboBoxDimensions();
+        }
+
         //Properties
         //-> Appearance
         [Category("RJ Code - Appearance")]
@@ -243,59 +294,6 @@ namespace CustomControls.RJControls
         {
             get { return cmbList.SelectedIndex; }
             set { cmbList.SelectedIndex = value; }
-        }
-
-
-
-        //Constructor
-        public RJComboBox()
-        {
-            cmbList = new ComboBox();
-            lblText = new Label();
-            btnIcon = new Button();
-            this.SuspendLayout();
-
-            //ComboBox: Dropdown list
-            cmbList.BackColor = listBackColor;
-            cmbList.Font = new Font(this.Font.Name, 10F);
-            cmbList.ForeColor = listTextColor;
-            cmbList.SelectedIndexChanged += new EventHandler(ComboBox_SelectedIndexChanged);//Default event
-            cmbList.TextChanged += new EventHandler(ComboBox_TextChanged);//Refresh text
-
-            //Button: Icon
-            btnIcon.Dock = DockStyle.Right;
-            btnIcon.FlatStyle = FlatStyle.Flat;
-            btnIcon.FlatAppearance.BorderSize = 0;
-            btnIcon.BackColor = backColor;
-            btnIcon.Size = new Size(30, 30);
-            btnIcon.Cursor = Cursors.Hand;
-            btnIcon.Click += new EventHandler(Icon_Click);//Open dropdown list
-            btnIcon.Paint += new PaintEventHandler(Icon_Paint);//Draw icon
-
-            //Label: Text
-            lblText.Dock = DockStyle.Fill;
-            lblText.AutoSize = false;
-            lblText.BackColor = backColor;
-            lblText.TextAlign = ContentAlignment.MiddleLeft;
-            lblText.Padding = new Padding(8, 0, 0, 0);
-            lblText.Font = new Font(this.Font.Name, 10F);
-            //->Attach label events to user control event
-            lblText.Click += new EventHandler(Surface_Click);//Select combo box
-            lblText.MouseEnter += new EventHandler(Surface_MouseEnter);
-            lblText.MouseLeave += new EventHandler(Surface_MouseLeave);
-
-            //User Control
-            this.Controls.Add(lblText);//2
-            this.Controls.Add(btnIcon);//1
-            this.Controls.Add(cmbList);//0
-            this.MinimumSize = new Size(200, 30);
-            this.Size = new Size(200, 30);
-            this.ForeColor = Color.DimGray;
-            this.Padding = new Padding(borderSize);//Border Size
-            this.Font= new Font(this.Font.Name, 10F);
-            base.BackColor = borderColor; //Border Color
-            this.ResumeLayout();
-            AdjustComboBoxDimensions();
         }
 
         //Private methods
