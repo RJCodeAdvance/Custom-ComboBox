@@ -87,11 +87,7 @@ namespace CustomControls.RJControls
         [Category("RJ Code - Appearance")]
         public new Color BackColor
         {
-            get
-            {
-                return backColor;
-            }
-
+            get { return backColor; }
             set
             {
                 backColor = value;
@@ -103,11 +99,7 @@ namespace CustomControls.RJControls
         [Category("RJ Code - Appearance")]
         public Color IconColor
         {
-            get
-            {
-                return iconColor;
-            }
-
+            get { return iconColor; }
             set
             {
                 iconColor = value;
@@ -118,11 +110,7 @@ namespace CustomControls.RJControls
         [Category("RJ Code - Appearance")]
         public Color ListBackColor
         {
-            get
-            {
-                return listBackColor;
-            }
-
+            get { return listBackColor; }
             set
             {
                 listBackColor = value;
@@ -133,11 +121,7 @@ namespace CustomControls.RJControls
         [Category("RJ Code - Appearance")]
         public Color ListTextColor
         {
-            get
-            {
-                return listTextColor;
-            }
-
+            get { return listTextColor; }
             set
             {
                 listTextColor = value;
@@ -148,11 +132,7 @@ namespace CustomControls.RJControls
         [Category("RJ Code - Appearance")]
         public Color BorderColor
         {
-            get
-            {
-                return borderColor;
-            }
-
+            get { return borderColor; }
             set
             {
                 borderColor = value;
@@ -163,11 +143,7 @@ namespace CustomControls.RJControls
         [Category("RJ Code - Appearance")]
         public int BorderSize
         {
-            get
-            {
-                return borderSize;
-            }
-
+            get { return borderSize; }
             set
             {
                 borderSize = value;
@@ -179,11 +155,7 @@ namespace CustomControls.RJControls
         [Category("RJ Code - Appearance")]
         public override Color ForeColor
         {
-            get
-            {
-                return base.ForeColor;
-            }
-
+            get { return base.ForeColor; }
             set
             {
                 base.ForeColor = value;
@@ -194,11 +166,7 @@ namespace CustomControls.RJControls
         [Category("RJ Code - Appearance")]
         public override Font Font
         {
-            get
-            {
-                return base.Font;
-            }
-
+            get { return base.Font; }
             set
             {
                 base.Font = value;
@@ -224,13 +192,13 @@ namespace CustomControls.RJControls
                     cmbList.DropDownStyle = value;
             }
         }
-
+        //Properties
         //-> Data
         [Category("RJ Code - Data")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Editor("System.Windows.Forms.Design.ListControlStringCollectionEditor, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         [Localizable(true)]
-        [MergableProperty(false)]    
+        [MergableProperty(false)]
         public ComboBox.ObjectCollection Items
         {
             get { return cmbList.Items; }
@@ -238,7 +206,7 @@ namespace CustomControls.RJControls
 
         [Category("RJ Code - Data")]
         [AttributeProvider(typeof(IListSource))]
-        [DefaultValue(null)]      
+        [DefaultValue(null)]
         public object DataSource
         {
             get { return cmbList.DataSource; }
@@ -250,7 +218,7 @@ namespace CustomControls.RJControls
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Editor("System.Windows.Forms.Design.ListControlStringCollectionEditor, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         [EditorBrowsable(EditorBrowsableState.Always)]
-        [Localizable(true)]  
+        [Localizable(true)]
         public AutoCompleteStringCollection AutoCompleteCustomSource
         {
             get { return cmbList.AutoCompleteCustomSource; }
@@ -260,7 +228,7 @@ namespace CustomControls.RJControls
         [Category("RJ Code - Data")]
         [Browsable(true)]
         [DefaultValue(AutoCompleteSource.None)]
-        [EditorBrowsable(EditorBrowsableState.Always)]    
+        [EditorBrowsable(EditorBrowsableState.Always)]
         public AutoCompleteSource AutoCompleteSource
         {
             get { return cmbList.AutoCompleteSource; }
@@ -270,7 +238,7 @@ namespace CustomControls.RJControls
         [Category("RJ Code - Data")]
         [Browsable(true)]
         [DefaultValue(AutoCompleteMode.None)]
-        [EditorBrowsable(EditorBrowsableState.Always)]   
+        [EditorBrowsable(EditorBrowsableState.Always)]
         public AutoCompleteMode AutoCompleteMode
         {
             get { return cmbList.AutoCompleteMode; }
@@ -280,20 +248,37 @@ namespace CustomControls.RJControls
         [Category("RJ Code - Data")]
         [Bindable(true)]
         [Browsable(false)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]       
-        public object SelectedItem 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public object SelectedItem
         {
             get { return cmbList.SelectedItem; }
             set { cmbList.SelectedItem = value; }
         }
-        
+
         [Category("RJ Code - Data")]
         [Browsable(false)]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]    
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int SelectedIndex
         {
             get { return cmbList.SelectedIndex; }
             set { cmbList.SelectedIndex = value; }
+        }
+
+        [DefaultValue("")]
+        [Editor("System.Windows.Forms.Design.DataMemberFieldEditor, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]      
+        [TypeConverter("System.Windows.Forms.Design.DataMemberFieldConverter, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+        public string DisplayMember
+        {
+            get { return cmbList.DisplayMember; }
+            set { cmbList.DisplayMember = value; }
+        }
+
+        [DefaultValue("")]
+        [Editor("System.Windows.Forms.Design.DataMemberFieldEditor, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
+        public string ValueMember
+        {
+            get { return cmbList.ValueMember; }
+            set { cmbList.ValueMember = value; }
         }
 
         //Private methods
