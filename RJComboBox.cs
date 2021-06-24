@@ -264,8 +264,9 @@ namespace CustomControls.RJControls
             set { cmbList.SelectedIndex = value; }
         }
 
+        [Category("RJ Code - Data")]
         [DefaultValue("")]
-        [Editor("System.Windows.Forms.Design.DataMemberFieldEditor, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]      
+        [Editor("System.Windows.Forms.Design.DataMemberFieldEditor, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         [TypeConverter("System.Windows.Forms.Design.DataMemberFieldConverter, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
         public string DisplayMember
         {
@@ -273,6 +274,7 @@ namespace CustomControls.RJControls
             set { cmbList.DisplayMember = value; }
         }
 
+        [Category("RJ Code - Data")]
         [DefaultValue("")]
         [Editor("System.Windows.Forms.Design.DataMemberFieldEditor, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", typeof(UITypeEditor))]
         public string ValueMember
