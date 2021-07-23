@@ -13,7 +13,7 @@ using System.Drawing.Design;
 namespace CustomControls.RJControls
 {
     [DefaultEvent("OnSelectedIndexChanged")]
-    class RJComboBox : UserControl
+    public class RJComboBox : UserControl
     {
         //Fields
         private Color backColor = Color.WhiteSmoke;
